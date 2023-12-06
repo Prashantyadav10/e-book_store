@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  <title>login &amp; signup form</title>
+  <link rel="stylesheet" href="style1.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body class="sticky">
+
+  <div class="header">
+
+  <img src="photo/images.png" alt="Lago">
+
+  <div class="clg_name">
+
+  <h1> INSTITUTE OF TECHNOLOGY AND MANAGEMENT </h1>
+
+  <p> Approved by AICTE, PCI, New Delhi affiliated by A.K.T.U. Lucknow </p>
+
+  </div>
+
+  <input type="submit" value="Read Some Free Book" class="btn1" onclick="window.open('')">
+
+  </div>
+  <div clss="navbar">
+
+  <ul class="navbar-li" >
+
+  <li><a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a> </li>
+
+  <li><a href="login.html" target="_self"><i class="fa fa-fw fa-user"></i>Login </a></li>
+
+  <li> <a href="registration.html"><i class="fa fa-fw fa-registered"></i>Registration </a></li>
+
+  <li> <a href="index.html#catalogue"><i class="fa fa-fw fa-file"></i>Catalogue </a> </li>
+
+  <li><a href="#"><i class="fa fa-fw fa-shopping-cart"></i> Cart </a></li>
+
+  </ul>
+
+  </div>
+
+
+  
+  <!-- partial:index.partial.html -->
+  <div class="log-cantain">
+  <div class="wrapper">
+    <div class="title-text">
+      <div class="title login">Login </div>
+      <div class="title signup"><ins>Signup</ins> </div>
+    </div>
+    <div class="form-container">
+
+      <div class="form-inner">
+        <form action="#" class="login">
+          <div class="field">
+            <input type="text" placeholder="Email Address" required>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Password" required>
+          </div>
+          <div class="pass-link"><a href="#">Forgot password?</a></div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input class="log" type="submit" value="Login">
+          </div>
+          <div class="signup-link"><i>New User? </i><a href="#">Signup </a></div>
+        </form>
+        <form action="#" class="signup">
+
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input class="regis" type="submit" value="Register Now">
+          </div>
+          <div class="login-link"><i>I have account! </i><a href="#">login</a></div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- partial -->
+  <script>
+    const loginText = document.querySelector(".title-text .login");
+    const loginForm = document.querySelector("form.login");
+    const loginLink = document.querySelector(".login-link a");
+    const signupLink = document.querySelector(".signup-link a");
+
+    signupLink.onclick = () => {
+      loginForm.style.marginLeft = "-50%";
+      loginText.style.marginLeft = "-50%";
+    };
+
+    loginLink.onclick = () => {
+      loginForm.style.marginLeft = "0%";
+      loginText.style.marginLeft = "0%";
+    };
+const registerButton = document.querySelector("form.signup .field.btn input[type='submit']");
+registerButton.onclick = (event) => {
+  event.preventDefault(); // This prevents the default form submission behavior
+  window.location.href = "registration.html";
+};
+
+
+  </script>
+
+</body>
+
+</html>

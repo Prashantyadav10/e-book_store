@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.book {
+   background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #0a8a7b;
+    padding: 10px;
+  margin: 10px;
+    max-width: 600px;
+}
+
+.book img {
+    max-width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.book-details {
+    flex-grow: 1;
+    text-align: left;
+  display:flex;
+  flex-direction: row;
+}
+
+button {
+
+  margin-left: 10px;
+}
+
+.catalouge h1 {
+  color: #000000;
+  text-align: center;
+  margin-left: 40px;
+  font-size: 35px;
+  font-weight: 900;
+  text-shadow: 2px 2px 2px rgba(200,200,200,10);
+}
+.buy{
+  background-color: rgb(21, 188, 52);
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  margin: 5px;
+  flex-direction: row;
+}
+.buy:active,
+.buy:hover{
+  background-color: rgb(81, 225, 107);
+}
+.cart button {
+ margin: 10px;
+  padding: 10px;
+}
+.text{
+  padding: 10px;
+  margin: 10px;
+}
+.cart{
+  margin-left: 5%;
+}
+.book p {
+  padding: 5px;
+  font-size: 20px;
+}
+.slider{
+  overflow-x: none;
+  overflow-y: auto;
+  width: 550px;
+  height: 400px;
+  padding: 30px;
+   border: 1px solid #000000;
+  box-shadow: 2px 1px 1px rgba(0,0,0,8);
+   background:  -webkit-linear-gradient(70deg, #0073e5  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(30deg, #1cccd9 60%, #003467 60%);
+     background: -o-linear-gradient(70deg, #0073e5  30%, rgba(0,0,0,0) 30%), -o-linear-gradient(30deg, #1cccd9 60%, #003467 60%);
+     background: -moz-linear-gradient(70deg, #0073e5  30%, rgba(0,0,0,0) 30%), -moz-linear-gradient(30deg, #1cccd9 60%, #003467 60%);
+     background: linear-gradient(70deg, #0073e5  30%, rgba(0,0,0,0) 30%), linear-gradient(30deg, #1cccd9 60%, #003467 60%);
+}
+
+
+/* mobile */
+
+@media screen and (max-width: 768px)
+{
+ body{    
+    font-size: 20pxpx;
+    padding: 0;
+    margin: 0;
+    overflow-x: none;
+  }
+  .catalogues{
+    width: 130px;
+  }
+
+  .book-details { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  
+.catalouges h1 {
+    margin-left:10;
+    margin: 20px;
+    font-size: 30px;
+  }
+  .book{
+    max-width: 500px;
+    border-radius: 5px;
+  }
+
+  .buy{
+    background-color: rgb(21, 188, 52);
+    color: white;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    margin: 5px;
+    flex-direction: row;
+  }
+  .slider{
+    overflow-x:none;
+    overflow-y: auto;
+  }
+  .cart button {
+    
+    padding: 10px;
+    margin: 10px;
+  }
+ 
+}

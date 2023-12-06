@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> ITM College Online. Book Store </title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+
+  <div class="header">
+
+    <img src="photo/images.png" alt="Lago">
+
+    <div class="clg_name">
+
+      <h1> INSTITUTE OF TECHNOLOGY AND MANAGEMENT </h1>
+
+      <p> Approved by AICTE, PCI, New Delhi affiliated by A.K.T.U. Lucknow </p>
+
+    </div>
+
+    <input type="submit" value="Read Some Free Book" class="btn" onclick="window.open('')">
+
+  </div>
+  <div clss="navbar">
+
+    <ul class="navbar-li">
+
+      <li><a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a> </li>
+
+      <li><a href="login.html" target="_self"><i class="fa fa-fw fa-user"></i>Login </a></li>
+
+      <li> <a href="registration.html"><i class="fa fa-fw fa-registered"></i>Registration </a></li>
+
+      <li> <a href="Catalogue.html" target="iframe_a" id="catalogue-link"><i class="fa fa-fw fa-file"></i>Catalogue </a>
+      </li>
+
+      <li><a href="#"><i class="fa fa-fw fa-shopping-cart"></i> Cart </a></li>
+
+    </ul>
+
+  </div>
+
+
+  <div class="content">
+    <div class="dept">
+
+      <h1> See Books According to Your Department.</h1>
+
+      <ul>
+        <li><a href="ASM.html"> Applied Science </a></li>
+        <li><a href="CSE.html"> Computer Science Engineering </a> </li>
+        <li><a href="ECE.html"> Electronics Engineering. </a></li>
+        <li><a href="ME.html"> Mechanical Engineering </a></li>
+        <li><a href="CE.html">Civil Engineering </a></li>
+      </ul>
+
+    </div>
+    <div class="desc">
+      <form class="form-search" method="get" action="#">
+        <input type="search" name="search" placeholder="search your book here for..">
+        <button type="submit" target="iframe_a">Search</button>
+
+      </form>
+      <iframe src="frame.html" name="iframe_a" title="Iframe Example" class="frame">
+      </iframe>
+    </div>
+
+  </div>
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="photo/slider pic/6ac65a84-922b-4f38-9958-3c0fc5676a3b.jpeg" alt="s"></div>
+      <div class="swiper-slide"><img
+          src="photo/slider pic/Best Psychology Books on Human Behavior - Hooked To Books.jpeg" alt="s"></div>
+      <div class="swiper-slide"><img src="photo/slider pic/Book Lovers.jpeg" alt="s"></div>
+      <div class="swiper-slide"><img src="photo/slider pic/book-794978_1280.jpg" alt="s"></div>
+      <div class="swiper-slide"><img
+          src="photo/slider pic/Famous book quotes on infinitely charming posters by Simini Blocker.jpeg" alt="s"></div>
+      <div class="swiper-slide"><img
+          src="photo/slider pic/Graman Vintage Metal Tin Sign Books Into The Library Vertical Poster, Girl Love Books Vintage Wall Art, Book Lover, Book Dictionary Poster Metal Tin Sign 8X12-Inch.jpeg"
+          alt="s"></div>
+      <div class="swiper-slide"><img src="photo/slider pic/Postcard Books.jpeg" alt="s"></div>
+      <div class="swiper-slide"><img src="photo/slider pic/Reading.jpeg" alt="s"></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  
+<!-- footer section -->
+  
+  <footer class="section section-footer ">
+    <div class="container grid grid-three-column">
+      <div class="f-about">
+        <h3>About</h3>
+        <p>This is my first web-development project.</p>
+      </div>
+      <div class="f-links">
+        <h3>Links</h3>
+        <ul class="f-link">
+          <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="index.html">Home</a></li>
+           <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="login.html">Login</a></li>
+            <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="registration.html">Registration</a></li>
+             <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="Catalogue.html">Catalouge</a></li>
+               <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="#">Cart</a></li>
+        </ul>
+       </div> 
+      
+      <div class="f-address">
+      <h3>Have a Questions?</h3>
+        <address>
+          <div>
+            <p><span><ion-icon name="location-outline"></ion-icon></span> Gorakhpur, India </p>
+          </div>
+
+          <div>
+            <p><span><ion-icon name="call-outline"></ion-icon></span>  <a href="tel:+91 0"> +91 9876543210 </a></p>
+          </div>
+
+          <div>
+            <p><span><ion-icon name="mail-outline"></ion-icon></span>  <a href="mailto:py4169yadav@gmail.com"> py4169yadav@gmail.com </a></p>
+          </div>
+        </address>
+      </div>
+      </div>
+    <div class="container">
+      <div class="f-social-icons">
+        <a href="https://instagram.com/itmgkpofficial?igshid=YzAwZjE1ZTI0Zg==" target="_blank">
+       <span><ion-icon class="icons" name="logo-instagram"></ion-icon></span>
+        </a>
+        <a href="#" target="_blank">
+          <span>
+            <ion-icon class="icons" name="logo-youtube"></ion-icon>
+          </span>
+        </a>
+      </div>
+
+      <div class="f-credits">
+        <p>Copyright ©2023 All rights reserved | This template is made by Prashant Yadav</p>
+      </div>
+    </div>
+
+  </footer>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
