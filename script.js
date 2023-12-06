@@ -1,6 +1,9 @@
 if(window.location.hash ==="#catalogue"){
   document.getElementById("catalogue-link").click();
 }
+if(window.location.hash ==="#login"){
+  document.getElementById("login-link").click();
+}
 var swiper = new Swiper (".mySwiper", {
   spaceBetween: 30,
   centeredSlides: true,
