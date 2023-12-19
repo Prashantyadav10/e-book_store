@@ -13,13 +13,14 @@ body {
 }
 
 .book {
-   background-color: #fff;
+   background-color: rgba(255, 255, 255, 0.398);
     display: flex;
     justify-content: space-between;
     border: 1px solid #0a8a7b;
     padding: 10px;
   margin: 10px;
     max-width: 600px;
+    backdrop-filter: blur(10px);
 }
 
 .book img {
@@ -67,16 +68,17 @@ button {
  margin: 10px;
   padding: 10px;
 }
-.text{
-  padding: 10px;
-  margin: 10px;
+
+.text h2 ,p {
+  color: #fff;
+  text-shadow: 2px 2px 1px rgba(0,0,0,1);
 }
 .cart{
   margin-left: 5%;
 }
 .book p {
   padding: 5px;
-  font-size: 20px;
+  font-size: 16px;
 }
 .slider{
   overflow-x: none;
@@ -125,14 +127,18 @@ button {
   }
 
   .buy{
-    background-color: rgb(21, 188, 52);
+    background-color: rgb(0, 210, 38);
     color: white;
     border-radius: 15px;
     font-size: 1rem;
     font-weight: 600;
     border: none;
     margin: 5px;
+    height: 50px;
+    width: 120px;
     flex-direction: row;
+    box-shadow: 0 0 4px rgba(160, 255, 58,1);
+    cursor: pointer;
   }
   .slider{
     overflow-x:none;
