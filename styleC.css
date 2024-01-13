@@ -64,7 +64,7 @@ button {
 .buy:hover{
   background-color: rgb(81, 225, 107);
 }
-.cart button {
+.button {
  margin: 10px;
   padding: 10px;
 }
@@ -73,7 +73,7 @@ button {
   color: #fff;
   text-shadow: 2px 2px 1px rgba(0,0,0,1);
 }
-.cart{
+.{
   margin-left: 5%;
 }
 .book p {
@@ -144,7 +144,7 @@ button {
     overflow-x:none;
     overflow-y: auto;
   }
-  .cart button {
+  . button {
     
     padding: 10px;
     margin: 10px;

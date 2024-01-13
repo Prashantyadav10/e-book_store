@@ -1,69 +1,70 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title> catalogue </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>catalogue</title>
   <link rel="stylesheet" href="styleC.css">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
-
 <body>
-
-    <div class="catalouges">
+  <div class="catalouges">
     <h1>Welcome to Our E-Book Store</h1>
-      <div class="slider">
-    <div class="book">
+    <div class="slider">
+      <!-- Your book elements as before -->
+      <div class="book">
         <img src="photo/images.jpg" alt="Book 1 Cover">
         <div class="book-details">
-         <div class="text">
-          <h2>Engineering Mathematic 2</h2>
-         <p>Author: S. Chand</p>
+          <div class="text">
+            <h2>Engineering Mathematic 2</h2>
+            <p>Author: S. Chand</p>
             <p>Price: $10.99</p>
-         </div>
+          </div>
           <div class="cart">
-            <button class="buy">Add to Cart</button>
+            <button class="buy" onclick="addToCart(this)" data-title="Engineering Mathematic 2" data-author="S. Chand" data-price="10.99" data-image="photo/images.jpg">Add to Cart</button>
           </div>
         </div>
+      </div>
+      <!-- Add more books as needed -->
     </div>
-
-    <div class="book">
-      <img src="book2.jpg" alt="Book 2 Cover">
-      <div class="book-details">
-       <div class="text">
-        <h2>Book Title 2</h2>
-       <p>Author: Author Name</p>
-          <p>Price: $10.99</p>
-       </div>
-        <div class="cart">
-          <button class="buy">Add to Cart</button>
-        </div>
-      </div>
-  </div>    
-  <div class="book">
-    <img src="book3.jpg" alt="Book 3 Cover">
-    <div class="book-details">
-     <div class="text">
-      <h2>Book Title 3</h2>
-     <p>Author: Author Name</p>
-        <p>Price: $10.99</p>
-     </div>
-      <div class="cart">
-        <button class="buy">Add to Cart</button>
-      </div>
-    </div>
-</div>    <!-- Add more books as needed -->
-      </div>
-       </div>
-    
-
-
   </div>
-    </body>
-    </html>
+
+  <script>
+    function addToCart(button) {
+      var title = button.getAttribute('data-title');
+      var author = button.getAttribute('data-author');
+      var price = button.getAttribute('data-price');
+      var image = button.getAttribute('data-image');
+
+      var productInfo = {
+        title: title,
+        author: author,
+        price: price,
+        image: image
+      };
+
+      // Use the Fetch API to send a POST request to the backend
+      fetch('http://localhost:3000/addToCart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(productInfo),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Server response:', data);
+        // Handle the server response as needed
+      })
+      .catch(error => {
+        console.error('Error during fetch operation:', error);
+      });
+    }
+  </script>
+</body>
+</html>

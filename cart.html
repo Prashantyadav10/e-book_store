@@ -1,12 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="styleC.css"> <!-- Include your styles if needed -->
+  <style>
+    body{
+        height: 100vh;
+        width: 100%;
+       background: linear-gradient(70deg, #0073e5  30%, rgba(0,0,0,0) 30%), linear-gradient(30deg, #1cccd9 60%, #003467 60%);
+    }
+    .cart-container{
+        margin: 20px;
+        padding: 10px 20px 30px;
+
+    }
+    .cart-container h1{
+        background-color: #fff;
+        margin: 10px;
+        padding: 20px;
+        font-size: 40px;
+        color: #333;
+        text-shadow: 1px 1px 4px hsla(0, 0,0, 0.8);
+    }
+    .item-all{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 30px;
+    }
+    .cart-item{
+        padding: 20px;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.398);
+    }
+    .cart-item:nth-child(even){
+        backdrop-filter: blur(10px);
+        background-color: rgba(241, 254, 254, 0.778);
+    }
+    .total {
+        border: 2px solid #fff;
+        width: 100%;
+        font-size: 25px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow: auto;
+        position: sticky;
+    }
+    .total h3{
+        margin: 20px;
+    }
+    .total  .btn{
+        font-weight: bold;
+        width: 150px;
+        border: none;
+        color:#fff;
+        background-color: #1cccd9;
+        font-size: 30px;
+        padding: 20px;
+        margin: 2px;
+        
+    }
+    .remove{
+        color: #fff;
+        background-color: darkred;
+        border: none;
+        width:200px;
+        font-size: 20px;
+        margin-top: 100px;
+        border-radius: 5px;
+    }
+</style>
 </head>
 <body>
-    
+  <div class="cart-container">
+    <h1>Your Cart</h1>
+
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items will be dynamically added here -->
+    </div>
+
+    <div class="total">
+      <h3>Total: <span id="totalAmount">$0.00</span></h3>
+      <button type="submit" class="btn">Buy</button>
+    </div>
+  </div>
+
+  <script>
+    // Function to fetch user's cart data from the backend
+    async function fetchCartData() {
+      try {
+        const response = await fetch('http://localhost:3000/getCart');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const cartData = await response.json();
+        return cartData;
+      } catch (error) {
+        console.error('Error fetching cart data:', error);
+        return [];
+      }
+    }
+
+    // Function to display cart items
+    async function displayCartItems() {
+      const cartItemsContainer = document.getElementById('cartItems');
+      const totalAmountElement = document.getElementById('totalAmount');
+
+      try {
+        // Fetch user's cart data from the backend
+        const cartData = await fetchCartData();
+
+        let totalAmount = 0;
+
+        // Clear previous items
+        cartItemsContainer.innerHTML = '';
+
+        // Iterate through cart items and display them
+        cartData.forEach((item) => {
+          const cartItemDiv = document.createElement('div');
+          cartItemDiv.classList.add('cart-item');
+
+          // Display item details
+          cartItemDiv.innerHTML = `
+            <div class="item-all">
+             <img src="${item.image}" alt="${item.title} Cover">
+             <div class="item-details">
+               <h2>${item.title}</h2>
+               <p>Author: ${item.author}</p>
+               <p>Price: $${item.price.toFixed(2)}</p>
+               <button class="remove" onclick="removeFromCart(${item.id})">Remove From List</button>
+             </div>
+            </div> 
+          `;
+
+          // Add item to the cart items container
+          cartItemsContainer.appendChild(cartItemDiv);
+
+          // Update total amount
+          totalAmount += item.price;
+        });
+
+        // Display total amount
+        totalAmountElement.textContent = `$${totalAmount.toFixed(2)}`;
+      } catch (error) {
+        console.error('Error displaying cart items:', error);
+      }
+    }
+
+    // Function to remove an item from the cart
+    async function removeFromCart(itemId) {
+      try {
+        const response = await fetch('http://localhost:3000/removeFromCart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id: itemId }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        console.log('Server response:', data);
+
+        // Refresh cart items after removal
+        displayCartItems();
+      } catch (error) {
+        console.error('Error removing item from cart:', error);
+      }
+    }
+
+    // Call the function to display cart items when the page loads
+    window.onload = displayCartItems;
+  </script>
 </body>
 </html>
